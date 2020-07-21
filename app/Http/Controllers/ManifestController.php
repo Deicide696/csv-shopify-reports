@@ -49,12 +49,15 @@ class ManifestController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file'      => ['required']
+            'file' => ['required']
         ]);
 
-        Excel::import(new ManifestsImport, request()->file('file'));
+        Excel::import(new ManifestsImport, request()->file('remesas'));
 
-        return back();
+        return view('welcome', [
+            'income' => $this->income,
+            'cost' => $this->cost
+        ]);
     }
 
     public function vehicle(Request $request)
@@ -156,6 +159,16 @@ class ManifestController extends Controller
 
         return view('welcome', [
             'header' => 'Busqueda NIT cliente # ' . $request->input('identification'),
+            'income' => $this->income,
+            'cost' => $this->cost
+        ]);
+    }
+
+    public function empty ()
+    {
+        Manifest::query()->truncate();
+
+        return view('welcome', [
             'income' => $this->income,
             'cost' => $this->cost
         ]);

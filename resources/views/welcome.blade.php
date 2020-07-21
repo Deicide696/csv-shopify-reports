@@ -14,7 +14,17 @@
                 <div class="col-sm-6 text-center">
                     <img src="https://movitrans.colombiasoftware.net/themes/basic/images/movitrans/078_logo.gif" class="img-fluid" alt="Responsive image">
                     <h2>Reportes de Silogtran</h2>
-                </div>     
+                </div>    
+                <form action="{{ route('manifests.empty') }}" method="POST">
+                    <div class="card-body">                             
+                        <div class="form-row">
+                            <div class="col-auto">
+                                @csrf
+                                <button type="submit" class="btn-sm btn-info">Borrar datos</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 <div class="card shadow my-4 border-0">
                     <form action="{{ route('manifests.store') }}" method="POST" enctype="multipart/form-data">
                         <div class="card-body">                             
@@ -29,7 +39,7 @@
                             <div class="form-row">
                                 <div class="col-sm-4">
                                     <label for="">Remesas</label>
-                                    <input type="file" name="file" class="form-control">
+                                    <input type="file" name="remesas" class="form-control">
                                 </div>
                                 <div class="col-sm-4">
                                     <label for="">Combustible</label>

@@ -49,7 +49,7 @@ class ManifestController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => ['required']
+            'remesas' => ['required']
         ]);
 
         Excel::import(new ManifestsImport, request()->file('remesas'));

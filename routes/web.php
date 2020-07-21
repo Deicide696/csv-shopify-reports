@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/reports', 'ReportController@index');
+Route::get('/', 'ManifestController@index');
+Route::post('manifests', 'ManifestController@store')->name('manifests.store');
+Route::post('manifests-vehicle', 'ManifestController@vehicle')->name('manifests.vehicle');
+Route::post('manifests-driver', 'ManifestController@driver')->name('manifests.driver');
+Route::post('manifests-route', 'ManifestController@route')->name('manifests.route');
+Route::post('manifests-customer', 'ManifestController@customer')->name('manifests.customer');

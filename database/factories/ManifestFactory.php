@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Report;
+use App\Manifest;
 use Faker\Generator as Faker;
 
 $factory->define(Report::class, function (Faker $faker) {
